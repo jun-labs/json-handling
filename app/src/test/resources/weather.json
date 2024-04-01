@@ -1,0 +1,31 @@
+{
+  "title": "기상청 날씨 정보",
+  "country": [
+    {
+      "name": "KOREA"
+    }
+  ],
+  "tags": [
+    "기상청",
+    "날씨",
+    "기후"
+  ],
+  "locations": {
+    "busan": {
+      "namcheon": {
+        "tags": [
+          "남천동"
+        ],
+        "rainy": "0.3%",
+        "summary": "강수 확률",
+        "date": "2024.03.02",
+        "details": [
+          {
+            "humidity": "3",
+            "sunny": "3%"
+          }
+        ]
+      }
+    }
+  }
+}
