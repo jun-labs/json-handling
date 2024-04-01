@@ -8,14 +8,16 @@ Gson과 Jackson 라이브러리를 통한 Json 객체 핸들링.
 
 ## 💻 프로그램 실행
 
-app 모듈의 ExampleTest.kts에 파일경로 지정.
+app 모듈의 ExampleTest.kts에, resource 폴더 내 weather.json 파일경로 지정.
 
 ````kotlin
+@DisplayName("[UnitTest] 날씨 예제 단위 테스트")
 class ExampleUnitTest {
 
     @Test
+    @DisplayName("Json 파일에 데이터를 추가할 수 있다.")
     fun trafficAdditionalTest() {
-        val filePath = "$PATH"
+        val filePath = "PATH"
 
         val fileContent = File(filePath).readText()
         val result = add(fileContent)
@@ -50,8 +52,8 @@ class ExampleUnitTest {
 
 ```kotlin
 @Test
-@DisplayName("Json 객체에서 데이터를 삭제할 수 있다.")
-fun jsonDataRemoveTest() {
+@DisplayName("Json 객체에 배열 데이터를 추가할 수 있다.")
+fun jsonArrayAdditionalTest() {
     val jsonStr = "{\"name\":\"Jun\", \"age\":7}"
     val jsonObj = createObj(jsonStr)
 
@@ -60,10 +62,9 @@ fun jsonDataRemoveTest() {
         add("item2")
     }
     jsonObj.add("items", jsonArray)
-    jsonObj.remove("items")
 
-    val result = Gson().toJson(jsonObj)
-    val expected = "{\"name\":\"Jun\",\"age\":7}"
+    val result = gson.toJson(jsonObj)
+    val expected = "{\"name\":\"Jun\",\"age\":7,\"items\":[\"item1\",\"item2\"]}"
 
     assertEquals(expected, result)
 }
@@ -121,7 +122,7 @@ fun jsonDataRemoveTest() {
 │ └── src
 │     └── main
 │         └── java
-│             └── ScriptUtils.java
+│             └── ScriptUtils.java  # 빌드 스크립트에서 활용 가능
 
     ......
     
